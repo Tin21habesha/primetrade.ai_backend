@@ -20,18 +20,19 @@
 
 <h2>⚙️ Features</h2>
 <ul>
-  <li><b>Backend</b>
-    <ul>
-      <li>User registration and login with hashed passwords (bcrypt)</li>
-      <li>JWT authentication (<b>access & refresh tokens</b> for more secured token management)</li>
-      <li>Secure token handling with refresh/revocation (stored in DB in refresh tokenstable)</li>
-      <li>Role-based access control (USER & ADMIN) some routes require role</li>
-      <li>CRUD APIs for Product entity (full listing, detail, create, update, delete)</li>
-      <li>Full request validation(<b>Using class-transformer and Pipes</b>), and error responses(using interceptors and utility functions)</li>
-      <li>API documentation using Swagger and Postman</li>
-      <li>Redis caching for performance</li>
-    </ul>
-  </li>
+ <li><b>Backend</b>
+  <ul>
+    <li>User registration and login with hashed passwords (bcrypt): Protects user credentials by storing only non-reversible hashes, preventing data leaks if the database is compromised.</li>
+    <li>JWT authentication (access & refresh tokens): Uses short-lived tokens for verification and longer-lived refresh tokens for session continuity, reducing unauthorized access risks.</li>
+    <li>Secure token handling with refresh/revocation (stored in DB in refresh tokens table): Enables forced logout and session control by tracking issued tokens, blocking reused or stolen tokens.</li>
+    <li>Role-based access control (USER & ADMIN): Restricts sensitive API routes to users with specific roles, helping enforce business rules and data protection.</li>
+    <li>CRUD APIs for Product entity: Lets clients manage products (create, read, update, delete) and demonstrates RESTful API principles.</li>
+    <li>Full request validation (using class-transformer and Pipes), and error responses (with interceptors/utilities): Prevents bad or malicious data and ensures consistent, clear error handling for developers and users.</li>
+    <li>API documentation using Swagger and Postman: Makes endpoints discoverable and easy to test for other developers or reviewers.</li>
+    <li>Redis caching for performance: Speeds up repeated data requests by storing results in fast memory, reducing API latency and server load.</li>
+  </ul>
+</li>
+
   <li><b>Frontend</b>
     <ul>
       <li>Built with React.js</li>
@@ -51,7 +52,7 @@
   <tr><td>Auth</td><td>JWT (access & refresh)</td></tr>
   <tr><td>Caching</td><td>Redis</td></tr>
   <tr><td>Frontend</td><td>React.js and Shadcn</td></tr>
-  <tr><td>Docs</td><td>Swagger / Postman</td></tr>
+  <tr><td>Docs</td><td>Postman</td></tr>
 </table>
 
 <h2>🗃️ Database Models (Prisma)</h2>
@@ -182,8 +183,8 @@ npm run dev
 
 <h2>📡 API Documentation</h2>
 <ul>
-  <li><b>Swagger</b>: Available at <code>/api-docs</code> while server is running</li>
-  <li><b>Postman</b>: Collection file in <code>/docs/postman_collection.json</code></li>
+  <li><b>Swagger</b>: Available at <a href="https://documenter.getpostman.com/view/40287469/2sB3WnxNAn"><code>Postman documentation link</code></a> while server is running</li>
+  <li><b>Postman</b>: Collection file in <a href="https://.postman.co/workspace/My-Workspace~54cf7d5f-39b3-429c-8e08-e9a565944e2d/collection/40287469-c1ace104-6cb8-4372-878e-d67ad364da4c?action=share&creator=40287469"><code>Postman collections link</code></a></li>
 </ul>
 
 <h2>🧠 Frontend UI</h2>
