@@ -58,11 +58,11 @@
   <li><b>Backend</b>
     <ul>
       <li>User registration and login with hashed passwords (bcrypt)</li>
-      <li>JWT authentication (access & refresh tokens)</li>
-      <li>Secure token handling with refresh/revocation (stored in DB)</li>
-      <li>Role-based access control (USER & ADMIN)</li>
+      <li>JWT authentication (<b>access & refresh tokens</b> for more secured token management)</li>
+      <li>Secure token handling with refresh/revocation (stored in DB in refresh tokenstable)</li>
+      <li>Role-based access control (USER & ADMIN) some routes require role</li>
       <li>CRUD APIs for Product entity (full listing, detail, create, update, delete)</li>
-      <li>Full API versioning, request validation, and error responses</li>
+      <li>Full request validation(<b>Using class-transformer and Pipes</b>), and error responses</li>
       <li>API documentation using Swagger and Postman</li>
       <li>Redis caching for performance</li>
     </ul>
