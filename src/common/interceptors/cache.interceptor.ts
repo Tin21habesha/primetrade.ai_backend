@@ -8,6 +8,15 @@ import type { RedisClientType } from '@redis/client';
 import { Request } from 'express';
 import { Observable } from 'rxjs';
 
+function hasCircular(obj: any) {
+  try {
+    JSON.stringify(obj);
+    return false;
+  } catch (err) {
+    return true;
+  }
+}
+
 export class CacheInterceptor implements NestInterceptor {
   constructor(
     @Inject('REDIS_CLIENT') private readonly redisClient: RedisClientType,
@@ -36,7 +45,10 @@ export class CacheInterceptor implements NestInterceptor {
             next: async (data) => {
               subscriber.next({ data, cached: false });
               subscriber.complete();
-              await this.redisClient.setEx(key, 60, JSON.stringify(data));
+              const hasCycle = hasCircular(data);
+              if (request.method === 'GET' && !hasCycle) {
+                await this.redisClient.setEx(key, 60, JSON.stringify(data));
+              }
             },
             error: (err) => subscriber.error(err),
           });
