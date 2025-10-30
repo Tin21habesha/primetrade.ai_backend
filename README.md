@@ -219,7 +219,6 @@ npm run dev
 <ul>
   <li><b>Swagger</b>: Available at <code>/api-docs</code> while server is running</li>
   <li><b>Postman</b>: Collection file in <code>/docs/postman_collection.json</code></li>
-  <li><b>API Prefix</b>: <code>/api/v1/</code></li>
 </ul>
 
 <h2>🧠 Frontend UI</h2>
