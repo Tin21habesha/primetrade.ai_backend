@@ -1,8 +1,8 @@
-<h1 align="center">Backend Developer (Intern) – Project Assignment</h1>
+<h1 align="center">Backend Developer (Intern) – Project Assignment for primetrade.ai</h1>
 
 <h2>🚀 Overview</h2>
 <p>
-  This project is a secure, scalable backend system built with <b>NestJS, PostgreSQL, Prisma ORM, and Redis for scalability</b>, featuring RESTful APIs with JWT <b>(access and refresh token) authentication and role-based access</b>. It includes a basic React frontend for interacting with the APIs and testing CRUD.
+  This project is a secure, scalable backend system built with <b>NestJS, PostgreSQL, Prisma ORM, and Redis for scalability</b>, featuring RESTful APIs with JWT <b>(access and refresh token) authentication and role-based access(ADMIN and USER)</b>. It includes a basic React frontend for interacting with the APIs and testing CRUD.
 </p>
 
 <h2>🧩 Table of Contents</h2>
@@ -16,8 +16,6 @@
   <li>API Documentation</li>
   <li>Frontend UI</li>
   <li>Security & Scalability Notes</li>
-  <li>Evaluation Criteria</li>
-  <li>Submission Guidelines</li>
 </ul>
 
 <h2>⚙️ Features</h2>
@@ -196,15 +194,15 @@ npm run dev
   <li>Shows API messages/errors for each action</li>
 </ul>
 
-<h2>🔐 Security & Scalability Notes</h2>
+<h2>🔐 Security &amp; Scalability</h2>
 <ul>
-  <li>Passwords hashed using bcrypt before storage</li>
-  <li>JWT access and refresh token strategy for secure authentication</li>
-  <li>Refresh tokens are stored, revoked, and rotated securely (DB + Redis)</li>
-  <li>Redis caching for high-performance product queries</li>
-  <li>Input sanitized and validated throughout</li>
-  <li>Project modularity for new modules and feature scaling</li>
-  <li>Ready for Docker, microservices, horizontal scaling</li>
+  <li>Bcrypt password hashing: Passwords are never stored directly; hashing with unique salt for each password prevents recovery even if database is leaked.</li>
+  <li>JWT access & refresh tokens: Enables stateless, secure authentication and smooth token renewal workflow without forcing user re-login.</li>
+  <li>Revocable tokens (DB/Redis): Refresh tokens are stored, invalidated, and rotated for secure logout and session management.</li>
+  <li>Redis cache: High-speed memory store reduces database load and accelerates repeated product queries.</li>
+  <li>Input validation: All data is checked for type and format, blocking malicious or malformed input at the API layer.</li>
+  <li>Modular codebase: Cleanly separates features, making new modules easy to add and supporting enterprise growth.</li>
+  <li>Scalable infrastructure: Ready for Docker, microservices, and multiple server deployment to handle high traffic.</li>
 </ul>
 
 <p align="center">
