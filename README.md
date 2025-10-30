@@ -35,7 +35,7 @@
 
 <h2>🚀 Overview</h2>
 <p>
-  This project is a secure, scalable backend system built with <b>NestJS, PostgreSQL, Prisma ORM, and Redis</b>, featuring RESTful APIs with JWT (access and refresh token) authentication and role-based access. It includes a basic React/Next.js frontend for interacting with the APIs.
+  This project is a secure, scalable backend system built with <b>NestJS, PostgreSQL, Prisma ORM, and Redis for scalability</b>, featuring RESTful APIs with JWT <b>(access and refresh token) authentication and role-based access</b>. It includes a basic React frontend for interacting with the APIs and testing CRUD.
 </p>
 
 <h2>🧩 Table of Contents</h2>
@@ -52,11 +52,6 @@
   <li>Evaluation Criteria</li>
   <li>Submission Guidelines</li>
 </ul>
-
-<h2>🎯 Project Objective</h2>
-<p>
-  Build and demonstrate a modular, production-ready backend API with modern authentication, role-based permissions, clean code structure, and practical caching, all in 3 days.
-</p>
 
 <h2>⚙️ Features</h2>
 <ul>
