@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+
+model User {
+  user_id        Int   @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  hashed_password  String
+  role      Role     @default(USER)
+  tokens    RefreshToken[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  audit_logs  AuditLog[]
+}
+
+model Product {
+  id        Int   @id @default(autoincrement())
+  product_name     String
+  description String
+  price    String
+  in_stock Int
+  status    TaskStatus @default(PENDING)
+  image_url String? 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model RefreshToken {
+  token_id        Int   @id @default(autoincrement())
+  user_id    Int
+  token      String
+  expires_at DateTime
+  revoked    Boolean  @default(false)
+  user       User     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model AuditLog {
+  id        Int   @id @default(autoincrement())
+  user_id    Int
+  action    String
+  createdAt DateTime @default(now())
+  ipAddress String?  
+  user      User     @relation(fields: [user_id], references: [user_id])
+}
+
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  DONE
+}
