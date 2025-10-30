@@ -46,7 +46,11 @@ export class CacheInterceptor implements NestInterceptor {
               subscriber.next({ data, cached: false });
               subscriber.complete();
               const hasCycle = hasCircular(data);
-              if (request.method === 'GET' && !hasCycle) {
+              if (
+                request.method === 'GET' &&
+                !hasCycle &&
+                request.url.startsWith('/product')
+              ) {
                 await this.redisClient.setEx(key, 60, JSON.stringify(data));
               }
             },
