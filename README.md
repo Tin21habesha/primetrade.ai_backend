@@ -22,14 +22,14 @@
 <ul>
  <li><b>Backend</b>
   <ul>
-    <li>User registration and login with hashed passwords (bcrypt): Protects user credentials by storing only non-reversible hashes, preventing data leaks if the database is compromised.</li>
+    <li>User registration and login with hashed passwords (bcrypt)</li>
     <li>JWT authentication (access & refresh tokens): Uses short-lived tokens for verification and longer-lived refresh tokens for session continuity, reducing unauthorized access risks.</li>
     <li>Secure token handling with refresh/revocation (stored in DB in refresh tokens table): Enables forced logout and session control by tracking issued tokens, blocking reused or stolen tokens.</li>
     <li>Role-based access control (USER & ADMIN): Restricts sensitive API routes to users with specific roles, helping enforce business rules and data protection.</li>
     <li>CRUD APIs for Product entity: Lets clients manage products (create, read, update, delete) and demonstrates RESTful API principles.</li>
-    <li>Full request validation (using class-transformer and Pipes), and error responses (with interceptors/utilities): Prevents bad or malicious data and ensures consistent, clear error handling for developers and users.</li>
-    <li>API documentation using Swagger and Postman: Makes endpoints discoverable and easy to test for other developers or reviewers.</li>
-    <li>Redis caching for performance: Speeds up repeated data requests by storing results in fast memory, reducing API latency and server load.</li>
+    <li>Full request validation (using class-transformer and Pipes), and error responses (with interceptors/utilities)</li>
+    <li>API documentation using Postman</li>
+    <li>Redis caching for performance: This speeds up repeated data requests by storing results in fast memory</li>
   </ul>
 </li>
 
