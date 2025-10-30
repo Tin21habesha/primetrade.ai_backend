@@ -62,17 +62,17 @@
       <li>Secure token handling with refresh/revocation (stored in DB in refresh tokenstable)</li>
       <li>Role-based access control (USER & ADMIN) some routes require role</li>
       <li>CRUD APIs for Product entity (full listing, detail, create, update, delete)</li>
-      <li>Full request validation(<b>Using class-transformer and Pipes</b>), and error responses</li>
+      <li>Full request validation(<b>Using class-transformer and Pipes</b>), and error responses(using interceptors and utility functions)</li>
       <li>API documentation using Swagger and Postman</li>
       <li>Redis caching for performance</li>
     </ul>
   </li>
   <li><b>Frontend</b>
     <ul>
-      <li>Built with React.js / Next.js</li>
+      <li>Built with React.js</li>
       <li>Register and login forms</li>
       <li>Dashboard with JWT-protected CRUD operations</li>
-      <li>User feedback for all API responses</li>
+      <li>Protected routes for admins(RBAC)</li>
     </ul>
   </li>
 </ul>
@@ -80,12 +80,12 @@
 <h2>🧱 Tech Stack</h2>
 <table>
   <tr><th>Purpose</th><th>Tech</th></tr>
-  <tr><td>Server/API</td><td>NestJS</td></tr>
+  <tr><td>Framework</td><td>NestJS</td></tr>
   <tr><td>ORM</td><td>Prisma</td></tr>
   <tr><td>DB</td><td>PostgreSQL</td></tr>
   <tr><td>Auth</td><td>JWT (access & refresh)</td></tr>
   <tr><td>Caching</td><td>Redis</td></tr>
-  <tr><td>Frontend</td><td>React.js / Next.js</td></tr>
+  <tr><td>Frontend</td><td>React.js and Shadcn</td></tr>
   <tr><td>Docs</td><td>Swagger / Postman</td></tr>
 </table>
 
@@ -159,18 +159,23 @@ nestjs-backend/
 │   ├── database/
 │   ├── common/
 │   │   └── interceptors/
+│   │   └── utils/
+│   │   └── pipe/
+│   │   └── guards/
+│   │   └── decorators/
 │   └── main.ts
 │   └── app.module.ts
 ├── prisma/
 │   └── schema.prisma
-├── .env.example
+├── .env
 ├── package.json
 └── README.md
 frontend/
 ├── src/
 │   ├── pages/
 │   ├── components/
-│   └── services/
+│   └── data/
+│   └── hooks/
 ├── package.json
 └── README.md
 </code>
@@ -179,19 +184,16 @@ frontend/
 <h2>🧰 Setup Instructions</h2>
 <ol>
   <li><b>Clone the repository</b>
-    <pre><code>git clone https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;.git
-cd &lt;your-repo-name&gt;
+    <pre><code>git clone https://github.com/Eyob-smax/primetrade.ai.git
+cd backend or cd frontend
 </code></pre>
   </li>
   <li><b>Configure environment variables</b>
-    <pre><code>cp .env.example .env
-# Fill in:
-DATABASE_URL=postgresql://&lt;user&gt;:&lt;pass&gt;@localhost:5432/&lt;db&gt;
-DIRECT_URL=postgresql://&lt;user&gt;:&lt;pass&gt;@localhost:5432/&lt;db&gt;
-JWT_SECRET=your_jwt_access_secret
-JWT_REFRESH_SECRET=your_jwt_refresh_secret
-REDIS_URL=redis://localhost:6379
+    <pre><code>cp .env 
+# Fill:
+  All neccessay env files
 </code></pre>
+
   </li>
   <li><b>Install dependencies</b>
     <pre><code>npm install</code></pre>
@@ -239,33 +241,6 @@ npm run dev
   <li>Ready for Docker, microservices, horizontal scaling</li>
 </ul>
 
-<h2>🧾 Evaluation Criteria</h2>
-<ul>
-  <li>API design (RESTful, versioned, modular)</li>
-  <li>Database schema structure/management</li>
-  <li>Security (hashing, JWT, validation)</li>
-  <li>Frontend integration</li>
-  <li>Docs, code structure, scalability</li>
-</ul>
-
-<h2>📬 Submission Guidelines</h2>
-<ul>
-  <li>Push code to GitHub (with README, docs, logs if any)</li>
-  <li>Email your:
-    <ul>
-      <li>GitHub repository link</li>
-      <li>API documentation link/Postman collection</li>
-      <li>Resume/Portfolio</li>
-    </ul>
-  </li>
-  <li>To: saami@bajarangs.com, nagasai@bajarangs.com, chetan@bajarangs.com | <b>CC:</b> sonika@primetrade.ai</li>
-  <li><b>Subject:</b> Backend Developer Task – [Your Full Name]</li>
-  <li><b>Applicants will be notified within 3 business days.</b></li>
-  <li><b>Apply and submit as soon as possible.</b></li>
-</ul>
-
-<hr />
-
 <p align="center">
-  <i>Built with NestJS, Prisma, PostgreSQL, Redis, and React/Next.js for Bajarnags assignment.</i>
+  <i>Built with NestJS, Prisma, PostgreSQL, Redis, and React for primetrade.ai assignment.</i>
 </p>
