@@ -25,13 +25,12 @@
     <li>User registration and login with hashed passwords (bcrypt)</li>
     <li>JWT authentication (access & refresh tokens): Uses short-lived tokens for verification and longer-lived refresh tokens for session continuity, reducing unauthorized access risks.</li>
     <li>Secure token handling with refresh/revocation (stored in DB in refresh tokens table): Enables forced logout and session control by tracking issued tokens, blocking reused or stolen tokens.</li>
-    <li>Protected dashboard for Admins using RBAC</li>
     <li>Role-based access control (USER & ADMIN): Restricts sensitive API routes to users with specific roles, helping enforce business rules and data protection.</li>
     <li>CRUD APIs for Product entity: Lets clients manage products (create, read, update, delete) and demonstrates RESTful API principles.</li>
     <li>Full request validation (using class-transformer and Pipes), and error responses (with interceptors/utilities)</li>
     <li>API documentation using Postman</li>
     <li>Redis caching for performance: This speeds up repeated data requests by storing results in fast memory</li>
-    <li>Showing important error messages for the user when something happen.</li>
+    
   </ul>
 </li>
 
@@ -39,9 +38,12 @@
     <ul>
       <li>Built with React.js</li>
       <li>Register and login forms</li>
+      <li>Protected dashboard for Admins using RBAC</li>
       <li>Dashboard with JWT-protected CRUD operations</li>
       <li>Protected routes for admins(RBAC)</li>
+      <li>Showing important error messages for the user when something happen.</li>
     </ul>
+
   </li>
 </ul>
 
