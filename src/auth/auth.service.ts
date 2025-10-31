@@ -299,8 +299,7 @@ export class AuthService {
 
       const decoded = jwt.verify(
         token,
-        this.config.get<string>('JWT_ACCESS_SECRET') ||
-          (process.env.JWT_ACCESS_SECRET as string) ||  '63e454c82dcd9217f2e6e6e2799b1f7d',
+        '63e454c82dcd9217f2e6e6e2799b1f7d',
       ) as {
         id: string;
         name: string;
