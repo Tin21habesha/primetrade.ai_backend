@@ -5,7 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cookieParser());
   app.enableCors({
-    origin: 'https://primetrade-ai-frontend.vercel.app'
+    origin: 'https://primetrade-ai-frontend.vercel.app',
     credentials: true,
   });
   
