@@ -43,7 +43,6 @@
       <li>Protected routes for admins(RBAC)</li>
       <li>Showing important error messages for the user when something happen.</li>
     </ul>
-
   </li>
 </ul>
 
