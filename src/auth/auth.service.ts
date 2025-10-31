@@ -63,6 +63,7 @@ export class AuthService {
         id: user.user_id,
         name: user.name,
         role: user.role,
+        email:user.email
       };
 
       const accessToken = jwt.sign(payload, accessSecret, {
@@ -159,6 +160,7 @@ export class AuthService {
         id: user?.user_id,
         name: user.name,
         role: user.role,
+        email:user.email
       };
 
       const newAccessToken = jwt.sign(payload, accessSecret, {
@@ -247,6 +249,7 @@ export class AuthService {
         id: user.user_id,
         name: user.name,
         role: user.role,
+        email:user.email
       };
 
       const accessToken = jwt.sign(payload, accessSecret, {
