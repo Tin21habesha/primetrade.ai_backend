@@ -143,9 +143,10 @@ export class AuthController {
     return res.status(200).json(result);
   }
 
-  @Get('current-user')
+  @Get('/current-user')
   async getCurrentUser(@Req() req: Request) {
     const user = await this.authService.getCurrentUser(req);
+    console.log(user)
     if (!user) throw new UnauthorizedException();
     return user;
   }
