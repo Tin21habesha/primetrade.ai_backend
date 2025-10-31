@@ -16,7 +16,7 @@ import { UserModule } from './user/user.module';
     ConfigModule.forRoot({
       cache: true,
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: './env',
     }),
     RedisModule,
     DatabaseModule,

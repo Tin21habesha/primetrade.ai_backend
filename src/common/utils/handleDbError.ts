@@ -14,7 +14,6 @@ import {
 import { Prisma } from '@prisma/client';
 
 export function mapPrismaErrorToHttp(error: unknown): Error {
-  // Pass through already handled HTTP exceptions
   if (
     error instanceof BadRequestException ||
     error instanceof ConflictException ||

@@ -48,8 +48,12 @@ export class AuthService {
       );
       if (!isPasswordValid) throw new UnauthorizedException('Invalid password');
 
-      const accessSecret = this.config.get<string>('JWT_ACCESS_SECRET');
-      const refreshSecret = this.config.get<string>('JWT_REFRESH_SECRET');
+      const accessSecret =
+        this.config.get<string>('JWT_ACCESS_SECRET') ||
+        process.env.JWT_ACCESS_SECRET;
+      const refreshSecret =
+        this.config.get<string>('JWT_REFRESH_SECRET') ||
+        process.env.JWT_REFRESH_SECRET;
       if (!accessSecret || !refreshSecret)
         throw new InternalServerErrorException('JWT secrets not configured');
 
@@ -99,7 +103,9 @@ export class AuthService {
       throw new UnauthorizedException('No refresh token found');
 
     try {
-      const refreshSecret = this.config.get<string>('JWT_REFRESH_SECRET');
+      const refreshSecret =
+        this.config.get<string>('JWT_REFRESH_SECRET') ||
+        process.env.JWT_REFRESH_SECRET;
       if (!refreshSecret) {
         throw new InternalServerErrorException(
           'Jrt refresh token not configured correctly!',
@@ -137,7 +143,9 @@ export class AuthService {
           "We couldn't find any authorized user eith the given token. the use may not exist",
         );
       }
-      const accessSecret = this.config.get<string>('JWT_ACCESS_SECRET');
+      const accessSecret =
+        this.config.get<string>('JWT_ACCESS_SECRET') ||
+        process.env.JWT_ACCESS_SECRET;
       if (!accessSecret) {
         throw new InternalServerErrorException(
           'Jwt access secret key is not configured',
@@ -216,8 +224,12 @@ export class AuthService {
         },
       });
 
-      const accessSecret = this.config.get<string>('JWT_ACCESS_SECRET');
-      const refreshSecret = this.config.get<string>('JWT_REFRESH_SECRET');
+      const accessSecret =
+        this.config.get<string>('JWT_ACCESS_SECRET') ||
+        process.env.JWT_ACCESS_SECRET;
+      const refreshSecret =
+        this.config.get<string>('JWT_REFRESH_SECRET') ||
+        process.env.JWT_REFRESH_SECRET;
 
       if (!accessSecret || !refreshSecret) {
         throw new InternalServerErrorException(
@@ -281,7 +293,8 @@ export class AuthService {
 
       const decoded = jwt.verify(
         token,
-        this.config.get<string>('JWT_ACCESS_SECRET') as string,
+        this.config.get<string>('JWT_ACCESS_SECRET') ||
+          (process.env.JWT_ACCESS_SECRET as string),
       ) as {
         id: string;
         name: string;

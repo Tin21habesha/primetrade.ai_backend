@@ -71,8 +71,8 @@ export class AuthController {
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       secure:
-        this.config.get<'production' | 'development'>('NODE_ENV') ===
-        'production',
+        (this.config.get<'production' | 'development'>('NODE_ENV') ||
+          process.env.NODE_ENV) === 'production',
       sameSite: 'strict',
       maxAge: ACCESS_TOKEN_EX_NUM,
     });
@@ -80,8 +80,8 @@ export class AuthController {
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure:
-        this.config.get<'production' | 'development'>('NODE_ENV') ===
-        'production',
+        (this.config.get<'production' | 'development'>('NODE_ENV') ||
+          process.env.NODE_ENV) === 'production',
       sameSite: 'strict',
       maxAge: REFRESH_TOKEN_EX_NUM,
     });
@@ -108,8 +108,8 @@ export class AuthController {
     res.cookie('access_token', newAccessToken, {
       httpOnly: true,
       secure:
-        this.config.get<'production' | 'development'>('NODE_ENV') ===
-        'production',
+        (this.config.get<'production' | 'development'>('NODE_ENV') ||
+          process.env.NODE_ENV) === 'production',
       sameSite: 'strict',
       maxAge: ACCESS_TOKEN_EX_NUM,
     });
@@ -117,8 +117,8 @@ export class AuthController {
     res.cookie('refresh_token', newRefreshToken, {
       httpOnly: true,
       secure:
-        this.config.get<'production' | 'development'>('NODE_ENV') ===
-        'production',
+        (this.config.get<'production' | 'development'>('NODE_ENV') ||
+          process.env.NODE_ENV) === 'production',
       sameSite: 'strict',
       maxAge: REFRESH_TOKEN_EX_NUM,
     });

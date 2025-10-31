@@ -26,7 +26,9 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('ACCESS_TOKEN_NOT_FOUND');
     }
 
-    const access_token_secret = this.config.get<string>('JWT_ACCESS_SECRET');
+    const access_token_secret =
+      this.config.get<string>('JWT_ACCESS_SECRET') ||
+      process.env.JWT_ACCESS_SECRET;
     if (!access_token_secret) {
       throw new UnauthorizedException('JWT_TOKEN_NOT_CONFIGURED');
     }
