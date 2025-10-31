@@ -121,11 +121,11 @@ export class AuthController {
 
     res.clearCookie('access_token', {
       httpOnly: true,
-      sameSite: 'strict',
+      sameSite: 'none',
     });
     res.clearCookie('refresh_token', {
       httpOnly: true,
-      sameSite: 'strict',
+      sameSite: 'none',
     });
 
     return res.status(200).json(result);
