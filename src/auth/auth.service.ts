@@ -319,6 +319,7 @@ export class AuthService {
         email: decoded.email,
       };
     } catch (error) {
+      console.log(error)
       throw new BadRequestException('Could not retrieve user information');
     }
   }
