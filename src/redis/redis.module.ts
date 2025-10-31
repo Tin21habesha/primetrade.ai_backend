@@ -11,7 +11,9 @@ import { createClient } from 'redis';
       inject: [ConfigService],
       useFactory: async (config: ConfigService) => {
         const redisUrl =
-          config.get<string>('REDIS_URL') || process.env.REDIS_URL;
+          config.get<string>('REDIS_URL') ||
+          process.env.REDIS_URL ||
+          'rediss://default:AXR8AAIncDI2N2MzMTZhNmFiMjI0NmIxOWE4YjhlNjNhOTRiYmMwYXAyMjk4MjA@related-imp-29820.upstash.io:6379';
         if (!redisUrl) throw new Error('REDIS_URL is not defined in env');
 
         const redisClient = createClient({ url: redisUrl });
