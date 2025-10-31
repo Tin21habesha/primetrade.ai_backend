@@ -30,6 +30,7 @@
     <li>Full request validation (using class-transformer and Pipes), and error responses (with interceptors/utilities)</li>
     <li>API documentation using Postman</li>
     <li>Redis caching for performance: This speeds up repeated data requests by storing results in fast memory</li>
+    <li>Showing important error messages for the user when something happen.</li>
   </ul>
 </li>
 
